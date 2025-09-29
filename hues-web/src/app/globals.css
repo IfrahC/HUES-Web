@@ -1,8 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* optional: global styles */
 html, body {
   @apply bg-gray-950 text-white;
 }
