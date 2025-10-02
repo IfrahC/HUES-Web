@@ -11,6 +11,6 @@ export async function POST(req: Request) {
     );
   }
 
-  // TODO: Save to DB later
+  // TODO: Save to Firebase DB later
   return NextResponse.json({ success: true });
 }

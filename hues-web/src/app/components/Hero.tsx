@@ -4,7 +4,7 @@ export default function Hero() {
       id="home"
       className="relative h-screen flex items-center justify-center text-center text-white"
     >
-      {/* Background video (replace src with your own) */}
+      {/* Background video/pic */}
       <video
         autoPlay
         loop
