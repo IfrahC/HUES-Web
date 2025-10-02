@@ -1,5 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Space_Grotesk } from "next/font/google";
+import { Toaster } from "react-hot-toast";
+
+const grotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export const metadata: Metadata = {
   title: "HUES",
@@ -13,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={grotesk.className}>
+        {children}
+        <Toaster position="top-right" />
+      </body>
     </html>
   );
 }
