@@ -12,7 +12,7 @@ export default function Header() {
       : 'hover:underline hover:font-medium';
 
   return (
-    <header className="sticky top-0 z-50 flex justify-between items-center px-4 py-2 bg-gradient-to-r from-blue-500 via-[#00ffff] to-blue-500 text-white shadow-md">
+    <header className="sticky top-0 z-50 flex justify-between items-center px-4 py-2 bg-[#000000] text-white shadow-md">
       <div className="flex items-center space-x-3">
         <Link href="/">
           <Image

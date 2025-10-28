@@ -1,10 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
+
+  useEffect(() => {
+    // small delay so animation runs after mount
+    const t = setTimeout(() => setHeroVisible(true), 120);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white font-[Montserrat]">
@@ -66,20 +73,30 @@ export default function HomePage() {
         id="home"
         className="text-center py-28 min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden"
       >
-        <h2 className="text-6xl md:text-7xl font-black mb-6 uppercase leading-tight">
+        <h2
+          className={`text-6xl md:text-7xl font-black mb-6 uppercase leading-tight transform transition-all duration-900 ease-out ${
+            heroVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+        >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-blue-500 drop-shadow-lg">
             Innovate.
           </span>{" "}
           Create. Inspire.
         </h2>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p
+          className={`text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed transform transition-all duration-700 ease-out delay-150 ${
+            heroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
+        >
           At <span className="font-bold">HUES</span>, we empower aspiring
           entrepreneurs and innovators at Habib University to turn bold ideas
           into reality.
         </p>
         <a
           href="#join"
-          className="bg-gradient-to-r from-[#00ffff] to-blue-500 text-black font-bold py-3 px-10 rounded-full text-lg transition-transform transform hover:scale-105 shadow-lg"
+          className={`bg-gradient-to-r from-[#00ffff] to-blue-500 text-black font-bold py-3 px-10 rounded-full text-lg transform transition-all duration-700 ease-out delay-300 hover:scale-105 shadow-lg ${
+            heroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
         >
           Join the Movement
         </a>
