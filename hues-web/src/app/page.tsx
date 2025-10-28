@@ -5,6 +5,7 @@ import Events from "./components/Events";
 import Team from "./components/Team";
 import Sponsors from "./components/Sponsors";
 import Join from "./components/Join";
+import { motion } from 'framer-motion';
 
 export default function HomePage() {
   return (

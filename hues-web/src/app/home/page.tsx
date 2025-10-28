@@ -12,7 +12,6 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-[#404040]/30 bg-[#0d0d0d]/90 backdrop-blur">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            {/* Test logo */}
             <div className="h-12 w-12 rounded-full bg-gradient-to-r from-[#00ffff] to-blue-500 flex items-center justify-center font-bold text-black">
               H
             </div>
