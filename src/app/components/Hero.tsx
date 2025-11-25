@@ -54,7 +54,7 @@ export default function Hero() {
           ideas into reality.
         </p>
         <a
-          href="#join"
+          href="/register"
           className={`bg-gradient-to-r from-[#00ffff] to-blue-500 text-black font-bold py-3 px-10 rounded-full text-lg transform transition-all duration-700 ease-out delay-50 hover:scale-105 shadow-lg transition-shadow hover:shadow-[0_0_30px_#00ffff]/80 ${
             visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}

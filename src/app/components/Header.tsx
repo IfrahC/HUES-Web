@@ -33,6 +33,9 @@ export default function Header() {
         <Link href="/about" className={linkClass('/about')}>
           About
         </Link>
+        <Link href="/timeline" className={linkClass('/timeline')}>
+          Timeline
+        </Link>
         <Link href="/events" className={linkClass('/events')}> {/* Need to make */}
           Events
         </Link>

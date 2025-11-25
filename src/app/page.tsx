@@ -4,7 +4,6 @@ import Programs from "./components/Programs";
 import Events from "./components/Events";
 import Team from "./components/Team";
 import Sponsors from "./components/Sponsors";
-import Join from "./components/Join";
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
@@ -16,7 +15,6 @@ export default function HomePage() {
       <Events />
       <Team />
       <Sponsors />
-      <Join />
       <footer className="bg-[#1a1a1a] border-t border-[#404040] py-8 mt-16 text-center text-gray-400">
         <p className="text-lg font-semibold text-white mb-2">
           Habib University Entrepreneurship Society
