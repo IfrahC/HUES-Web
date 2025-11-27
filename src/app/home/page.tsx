@@ -102,6 +102,49 @@ export default function HomePage() {
         </a>
       </section>
 
+      {/* Event Dates */}
+      <section className="py-10 container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-10">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-blue-500">
+            Event Dates
+          </span>
+        </h2>
+
+        <div className="bg-[#1a1a1a] border border-[#404040] rounded-xl p-10 text-center hover:shadow-[0_0_25px_#00ffff] transition-all">
+          <p className="text-xl text-gray-300 leading-relaxed">
+            <strong className="text-white">Proposed Dates:</strong> January 2–4, 2026 (Friday – Sunday)
+          </p>
+        </div>
+      </section>
+
+      {/* Prizes & Incentives */}
+      <section className="py-10 bg-[#111111]">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-12">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-blue-500">
+              Prizes & Incentives
+            </span>
+          </h2>
+
+        <div className="bg-[#1a1a1a] border border-[#404040] rounded-xl p-10 hover:shadow-[0_0_25px_#00ffff] transition-all">
+          <ul className="text-lg text-gray-300 space-y-4">
+            <li>
+              🏆 <strong className="text-white">Winner:</strong> PKR 250,000 Seed Funding + Trophy of Achievement
+            </li>
+            <li>
+              🥈 <strong className="text-white">Runner-Up:</strong> PKR 150,000 Seed Funding
+            </li>
+            <li>
+              🥉 <strong className="text-white">Second Runner-Up:</strong> PKR 75,000 Seed Funding
+            </li>
+            <li>
+              🎓 All finalists will receive mentorship opportunities & access to networking events
+            </li>
+          </ul>
+        </div>
+        </div>
+      </section>
+
       {/* About */}
       <section id="about" className="py-20 container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-12">
