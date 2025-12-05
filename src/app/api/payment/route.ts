@@ -19,7 +19,18 @@ import { adminDb } from "@/lib/firebase-admin";
 
 export async function POST(req: Request) {
   try {
-    const { registrationId, amount, currency = "INR" } = await req.json();
+    // Check if Firebase is configured
+    if (!adminDb) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: "Firebase is not configured. Please add valid credentials to .env file." 
+        },
+        { status: 503 }
+      );
+    }
+
+    const { registrationId, amount } = await req.json();
 
     if (!registrationId || !amount) {
       return NextResponse.json(
@@ -43,6 +54,7 @@ export async function POST(req: Request) {
 
     // TODO: Integrate with payment gateway
     // Example with Razorpay:
+    // const currency = "INR"; // Default currency
     // const Razorpay = require('razorpay');
     // const razorpay = new Razorpay({
     //   key_id: process.env.NEXT_PUBLIC_PAYMENT_KEY_ID,
@@ -73,7 +85,19 @@ export async function POST(req: Request) {
 // Webhook endpoint for payment verification
 export async function PUT(req: Request) {
   try {
-    const { registrationId, paymentId, signature } = await req.json();
+    // Check if Firebase is configured
+    if (!adminDb) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: "Firebase is not configured. Please add valid credentials to .env file." 
+        },
+        { status: 503 }
+      );
+    }
+
+    const { registrationId, paymentId } = await req.json();
+    // const signature = req.json().signature; // Uncomment for payment gateway verification
 
     if (!registrationId || !paymentId) {
       return NextResponse.json(

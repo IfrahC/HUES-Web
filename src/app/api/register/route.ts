@@ -3,6 +3,17 @@ import { adminDb } from "@/lib/firebase-admin";
 
 export async function POST(req: Request) {
   try {
+    // Check if Firebase is configured
+    if (!adminDb) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: "Firebase is not configured. Please add valid credentials to .env file." 
+        },
+        { status: 503 }
+      );
+    }
+
     const data = await req.json();
     const { name, email, phone, university, year, paymentStatus } = data;
 
@@ -23,19 +34,20 @@ export async function POST(req: Request) {
       );
     }
 
-    // Validate phone format
-    const phoneRegex = /^[0-9]{10,15}$/;
+    // Validate phone format (allows international formats with +, -, spaces, parentheses)
+    const phoneRegex = /^[\d\s\-\+\(\)]{10,20}$/;
     if (!phoneRegex.test(phone)) {
       return NextResponse.json(
-        { success: false, message: "Invalid phone number" },
+        { success: false, message: "Invalid phone number format" },
         { status: 400 }
       );
     }
 
-    // Check if email already exists
+    // Check if email already exists (limit to 1 for better performance)
     const existingRegistrations = await adminDb
       .collection("registrations")
       .where("email", "==", email)
+      .limit(1)
       .get();
 
     if (!existingRegistrations.empty) {

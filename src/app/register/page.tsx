@@ -19,7 +19,6 @@ export default function RegisterPage() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>();
 
@@ -40,16 +39,10 @@ export default function RegisterPage() {
 
       if (result.success) {
         setRegistrationId(result.registrationId);
-        toast.success("Registration data saved! Please proceed with payment.");
+        toast.success("Registration data saved!");
         setShowPayment(true);
-        // In production, this would redirect to payment gateway
-        // For now, we'll show a success message
-        setTimeout(() => {
-          toast.success("Registration successful 🎉");
-          reset();
-          setShowPayment(false);
-          setRegistrationId(null);
-        }, 2000);
+        // In production, redirect to payment gateway here:
+        // window.location.href = `/payment?id=${result.registrationId}`;
       } else {
         toast.error(result.message || "Something went wrong");
       }
@@ -102,7 +95,7 @@ export default function RegisterPage() {
               type="tel"
               {...register("phone", {
                 required: "Phone is required",
-                pattern: { value: /^[0-9]{10,15}$/, message: "Invalid phone number" },
+                pattern: { value: /^[\d\s\-\+\(\)]{10,20}$/, message: "Invalid phone number format" },
               })}
               className="w-full px-4 py-2 rounded-md bg-[#0d0d0d] border border-[#333] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffff]"
             />
