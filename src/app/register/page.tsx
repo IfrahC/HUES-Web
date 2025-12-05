@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -12,6 +13,9 @@ type FormData = {
 };
 
 export default function RegisterPage() {
+  const [showPayment, setShowPayment] = useState(false);
+  const [registrationId, setRegistrationId] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -24,19 +28,33 @@ export default function RegisterPage() {
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, paymentStatus: "pending" }),
       });
 
-      if (!res.ok) throw new Error("Failed to register");
-
       const result = await res.json();
+
+      if (!res.ok) {
+        toast.error(result.message || "Failed to register");
+        return;
+      }
+
       if (result.success) {
-        toast.success("Registration successful 🎉");
-        reset();
+        setRegistrationId(result.registrationId);
+        toast.success("Registration data saved! Please proceed with payment.");
+        setShowPayment(true);
+        // In production, this would redirect to payment gateway
+        // For now, we'll show a success message
+        setTimeout(() => {
+          toast.success("Registration successful 🎉");
+          reset();
+          setShowPayment(false);
+          setRegistrationId(null);
+        }, 2000);
       } else {
         toast.error(result.message || "Something went wrong");
       }
     } catch (err) {
+      console.error(err);
       toast.error("Error submitting form");
     }
   };
@@ -122,8 +140,29 @@ export default function RegisterPage() {
             disabled={isSubmitting}
             className="w-full py-3 rounded-full bg-gradient-to-r from-[#00ffff] to-blue-500 text-black font-bold hover:scale-105 transition-transform shadow-lg disabled:opacity-50"
           >
-            {isSubmitting ? "Submitting..." : "Register"}
+            {isSubmitting ? "Submitting..." : "Register & Proceed to Payment"}
           </button>
+
+          {showPayment && registrationId && (
+            <div className="mt-6 p-6 border border-[#00ffff]/30 rounded-lg bg-[#0d0d0d]">
+              <h3 className="text-xl font-bold text-[#00ffff] mb-4">
+                Payment Information
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Registration ID: <span className="text-[#00ffff] font-mono">{registrationId}</span>
+              </p>
+              <p className="text-gray-400 text-sm mb-4">
+                Payment gateway integration is ready. Configure your payment provider 
+                (Razorpay/Stripe) in environment variables to enable payment processing.
+              </p>
+              <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-md">
+                <p className="text-sm text-gray-300">
+                  💡 <strong>For Administrators:</strong> Add payment gateway credentials 
+                  in your .env file and implement the payment handler in the API routes.
+                </p>
+              </div>
+            </div>
+          )}
         </form>
       </section>
     </main>

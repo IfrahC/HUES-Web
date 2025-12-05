@@ -130,9 +130,9 @@ export default function TimelinePage() {
                 {event.side === "left" && (
                   <>
                     <div className="hidden md:block w-5/12"></div>
-                    <div className="w-full md:w-5/12 relative ml-12 md:ml-0 md:pr-8">
+                    <div className="w-full md:w-5/12 relative ml-12 md:ml-0 md:pr-12">
                       <div
-                        className="relative bg-gradient-to-br from-red-600/95 to-red-700/95 p-5 md:p-6 rounded-lg shadow-xl border border-red-500/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(220,38,38,0.7)] group timeline-arrow-left"
+                        className="relative bg-gradient-to-br from-red-600/95 to-red-700/95 p-5 md:p-6 rounded-lg shadow-xl border border-red-500/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(220,38,38,0.7)] group"
                       >
                         <div className="relative z-10">
                           <div className="text-xs md:text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
@@ -147,6 +147,8 @@ export default function TimelinePage() {
                           </p>
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff]/0 to-blue-500/0 group-hover:from-[#00ffff]/15 group-hover:to-blue-500/15 rounded-lg transition-all duration-300"></div>
+                        {/* Arrow pointer on desktop */}
+                        <div className="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-l-[12px] border-l-red-600"></div>
                       </div>
                     </div>
                     <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-[#0d0d0d] shadow-lg z-20 items-center justify-center">
@@ -169,9 +171,9 @@ export default function TimelinePage() {
                     <div className="md:hidden absolute left-6 transform -translate-x-1/2 w-5 h-5 bg-orange-500 rounded-full border-2 border-[#0d0d0d] shadow-lg z-20 flex items-center justify-center">
                       <div className="w-1.5 h-1.5 bg-orange-300 rounded-full animate-pulse"></div>
                     </div>
-                    <div className="w-full md:w-5/12 relative ml-12 md:ml-0 md:pl-8">
+                    <div className="w-full md:w-5/12 relative ml-12 md:ml-0 md:pl-12">
                       <div
-                        className="relative bg-gradient-to-br from-red-600/95 to-red-700/95 p-5 md:p-6 rounded-lg shadow-xl border border-red-500/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(220,38,38,0.7)] group timeline-arrow-right"
+                        className="relative bg-gradient-to-br from-red-600/95 to-red-700/95 p-5 md:p-6 rounded-lg shadow-xl border border-red-500/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(220,38,38,0.7)] group"
                       >
                         <div className="relative z-10">
                           <div className="text-xs md:text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
@@ -186,6 +188,8 @@ export default function TimelinePage() {
                           </p>
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff]/0 to-blue-500/0 group-hover:from-[#00ffff]/15 group-hover:to-blue-500/15 rounded-lg transition-all duration-300"></div>
+                        {/* Arrow pointer on desktop */}
+                        <div className="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-r-[12px] border-r-red-600"></div>
                       </div>
                     </div>
                     <div className="hidden md:block w-5/12"></div>

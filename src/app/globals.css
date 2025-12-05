@@ -4,13 +4,3 @@
 .slick-slide > div{
     margin: 0 8px;
 }
-
-/* Timeline arrow shapes */
-@media (min-width: 768px) {
-  .timeline-arrow-left {
-    clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
-  }
-  .timeline-arrow-right {
-    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%);
-  }
-}
