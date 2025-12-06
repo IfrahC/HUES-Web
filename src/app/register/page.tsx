@@ -54,7 +54,7 @@ export default function LaunchpadRegistration() {
       if (!res.ok) throw new Error("Failed to register");
 
       toast.success("Registration submitted 🎉");
-      reset();
+      // reset();
     } catch (err) {
       toast.error("Error submitting form");
     }
@@ -366,7 +366,6 @@ export default function RegisterPage() {
         setRegistrationId(result.registrationId);
         toast.success("Registration data saved!");
         setShowPayment(true);
-<<<<<<< HEAD
         // In production, this would redirect to payment gateway
         // For now, we'll show a success message
         setTimeout(() => {
@@ -379,14 +378,6 @@ export default function RegisterPage() {
           toast.error(result.message || "Something went wrong");
         }
       } catch (err) {
-=======
-        // In production, redirect to payment gateway here:
-        // window.location.href = `/payment?id=${result.registrationId}`;
-      } else {
-        toast.error(result.message || "Something went wrong");
-      }
-    } catch (err) {
->>>>>>> f14f98e (Address code review feedback: improve validation, remove test code, optimize queries)
       console.error(err);
         toast.error("Error submitting form");
       }
@@ -402,82 +393,9 @@ export default function RegisterPage() {
             Register now and be part of a thriving entrepreneurial community.
           </p>
 
-<<<<<<< HEAD
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="max-w-2xl mx-auto bg-[#1a1a1a] border border-[#404040] rounded-xl p-8 space-y-6 text-left"
-=======
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="max-w-2xl mx-auto bg-[#1a1a1a] border border-[#404040] rounded-xl p-8 space-y-6 text-left"
-        >
-          <div>
-            <label className="block mb-1 font-semibold">Full Name</label>
-            <input
-              type="text"
-              {...register("name", { required: "Name is required" })}
-              className="w-full px-4 py-2 rounded-md bg-[#0d0d0d] border border-[#333] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffff]"
-            />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
-          </div>
-
-          <div>
-            <label className="block mb-1 font-semibold">Email</label>
-            <input
-              type="email"
-              {...register("email", {
-                required: "Email is required",
-                pattern: { value: /\S+@\S+\.\S+/, message: "Invalid email" },
-              })}
-              className="w-full px-4 py-2 rounded-md bg-[#0d0d0d] border border-[#333] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffff]"
-            />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
-          </div>
-
-          <div>
-            <label className="block mb-1 font-semibold">Phone</label>
-            <input
-              type="tel"
-              {...register("phone", {
-                required: "Phone is required",
-                pattern: { value: /^[\d\s\-\+\(\)]{10,20}$/, message: "Invalid phone number format" },
-              })}
-              className="w-full px-4 py-2 rounded-md bg-[#0d0d0d] border border-[#333] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffff]"
-            />
-            {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
-          </div>
-
-          <div>
-            <label className="block mb-1 font-semibold">University</label>
-            <input
-              type="text"
-              {...register("university", { required: "University is required" })}
-              className="w-full px-4 py-2 rounded-md bg-[#0d0d0d] border border-[#333] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffff]"
-            />
-            {errors.university && <p className="text-red-500 text-sm mt-1">{errors.university.message}</p>}
-          </div>
-
-          <div>
-            <label className="block mb-1 font-semibold">Year of Study</label>
-            <select
-              {...register("year", { required: "Year of study is required" })}
-              className="w-full px-4 py-2 rounded-md bg-[#0d0d0d] border border-[#333] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffff]"
-            >
-              <option value="">Select...</option>
-              <option value="1">1st Year</option>
-              <option value="2">2nd Year</option>
-              <option value="3">3rd Year</option>
-              <option value="4">4th Year</option>
-              <option value="Other">Other</option>
-            </select>
-            {errors.year && <p className="text-red-500 text-sm mt-1">{errors.year.message}</p>}
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full py-3 rounded-full bg-gradient-to-r from-[#00ffff] to-blue-500 text-black font-bold hover:scale-105 transition-transform shadow-lg disabled:opacity-50"
->>>>>>> f14f98e (Address code review feedback: improve validation, remove test code, optimize queries)
           >
             <div>
               <label className="block mb-1 font-semibold">Full Name</label>
