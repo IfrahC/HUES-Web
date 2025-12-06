@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { adminDb } from "@/lib/firebase-admin";
+import { Timestamp } from "firebase-admin/firestore";
 
 export async function POST(req: Request) {
   try {
@@ -15,6 +16,21 @@ export async function POST(req: Request) {
     }
 
     const data = await req.json();
+    const { name, email, phone, university, year, paymentStatus } = data;
+  try {
+    // Check if Firebase is configured
+    if (!adminDb) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Firebase is not configured. Please add valid credentials to .env file."
+        },
+        { status: 503 }
+      );
+    }
+
+    const data = await req.json();
+    console.log("Received registration data:", data);
     const { name, email, phone, university, year, paymentStatus } = data;
 
     // Validate required fields
