@@ -7,20 +7,6 @@ export async function POST(req: Request) {
     // Check if Firebase is configured
     if (!adminDb) {
       return NextResponse.json(
-        { 
-          success: false, 
-          message: "Firebase is not configured. Please add valid credentials to .env file." 
-        },
-        { status: 503 }
-      );
-    }
-
-    const data = await req.json();
-    const { name, email, phone, university, year, paymentStatus } = data;
-  try {
-    // Check if Firebase is configured
-    if (!adminDb) {
-      return NextResponse.json(
         {
           success: false,
           message: "Firebase is not configured. Please add valid credentials to .env file."
