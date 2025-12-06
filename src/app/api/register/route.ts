@@ -1,20 +1,22 @@
 import { NextResponse } from "next/server";
 import { adminDb } from "@/lib/firebase-admin";
+import { Timestamp } from "firebase-admin/firestore";
 
 export async function POST(req: Request) {
   try {
     // Check if Firebase is configured
     if (!adminDb) {
       return NextResponse.json(
-        { 
-          success: false, 
-          message: "Firebase is not configured. Please add valid credentials to .env file." 
+        {
+          success: false,
+          message: "Firebase is not configured. Please add valid credentials to .env file."
         },
         { status: 503 }
       );
     }
 
     const data = await req.json();
+    console.log("Received registration data:", data);
     const { name, email, phone, university, year, paymentStatus } = data;
 
     // Validate required fields
@@ -59,15 +61,15 @@ export async function POST(req: Request) {
 
     // Save registration data to Firestore
     const registrationData = {
-      name,
-      email,
-      phone,
-      university,
-      year,
-      paymentStatus: paymentStatus || "pending",
-      registeredAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    };
+  name,
+  email,
+  phone,
+  university,
+  year: parseInt(year, 10),        // store as number
+  paymentStatus: paymentStatus || "pending",
+  registeredAt: Timestamp.now(),   // Firestore timestamp
+  updatedAt: Timestamp.now(),      // Firestore timestamp
+};
 
     const docRef = await adminDb.collection("registrations").add(registrationData);
 
