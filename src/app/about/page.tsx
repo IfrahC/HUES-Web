@@ -157,7 +157,7 @@ export default function About() {
             <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">Final Pitch Quality</h3>
             <p className="text-gray-300 text-sm">
               Evaluates presentation clarity, persuasion, storytelling, feasibility, 
-              and the team's ability to defend their idea.
+              and the team&apos;s ability to defend their idea.
               <span className="block mt-2 text-[#3b82f6] font-semibold">Score: 15%</span>
             </p>
           </div>
