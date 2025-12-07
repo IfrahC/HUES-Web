@@ -89,7 +89,7 @@ export default function HomePage() {
           }`}
         >
           At <span className="font-bold">HUES</span>, we empower aspiring
-          entrepreneurs and innovators at Habib University to turn bold ideas
+          entrepreneurs and innovators to turn bold ideas
           into reality.
         </p>
         <a

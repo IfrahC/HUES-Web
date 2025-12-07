@@ -12,8 +12,8 @@ export default function HomePage() {
       <Hero />
       <About />
       <Programs />
-      <Events />
-      <Team />
+      {/* <Events /> */}
+      {/* <Team /> */}
       <Sponsors />
       <footer className="bg-[#1a1a1a] border-t border-[#404040] py-8 mt-16 text-center text-gray-400">
         <p className="text-lg font-semibold text-white mb-2">

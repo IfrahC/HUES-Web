@@ -7,7 +7,7 @@ export default function Events() {
         </span>
       </h2>
       <div className="grid md:grid-cols-2 gap-8">
-        {[1, 2].map((idx) => (
+        {[1].map((idx) => (
           <div
             key={idx}
             className="bg-[#1a1a1a] border border-[#404040] rounded-xl overflow-hidden"
