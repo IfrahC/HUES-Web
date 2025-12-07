@@ -16,21 +16,24 @@ const timelineEvents: TimelineEvent[] = [
   {
     year: "Day 1 — Friday",
     title: "Team Registration & Welcome Lunch",
-    description: "Kick off Launchpad with team check-in and a networking lunch to meet fellow participants.",
+    description:
+      "Kick off Launchpad with team check-in and a networking lunch to meet fellow participants.",
     side: "left",
     time: "2:00 PM - 4:00 PM",
   },
   {
     year: "Day 1 — Friday",
     title: "Opening Ceremony",
-    description: "High-energy kickoff, rule breakdown, and an inspiring talk from a young founder.",
+    description:
+      "High-energy kickoff, rule breakdown, and an inspiring talk from a young founder.",
     side: "right",
     time: "4:00 PM - 5:00 PM",
   },
   {
     year: "Day 1 — Friday",
     title: "Module 1: The Idea Auction",
-    description: "Teams bid using virtual seed money on limited resources, problems, and advantages — testing valuation and strategy.",
+    description:
+      "Teams bid using virtual seed money on limited resources, problems, and advantages — testing valuation and strategy.",
     side: "left",
     time: "5:00 PM - 8:00 PM",
   },
@@ -39,21 +42,24 @@ const timelineEvents: TimelineEvent[] = [
   {
     year: "Day 2 — Saturday",
     title: "Module 2: Viral Vendetta",
-    description: "A marketing challenge to create a full digital campaign for a quirky assigned product.",
+    description:
+      "A marketing challenge to create a full digital campaign for a quirky assigned product.",
     side: "right",
     time: "9:00 AM - 1:00 PM",
   },
   {
     year: "Day 2 — Saturday",
     title: "Module 3: Corporate Cataclysm",
-    description: "Crisis simulation - PR disaster, supply chain collapse, ethics challenge. Teams present a response plan.",
+    description:
+      "Crisis simulation - PR disaster, supply chain collapse, ethics challenge. Teams present a response plan.",
     side: "left",
     time: "2:00 PM - 6:00 PM",
   },
   {
     year: "Day 2 — Saturday",
     title: "Module 4: The Investor's Gala",
-    description: "A formal dinner where teams network with industry professionals (judges in disguise) to earn support.",
+    description:
+      "A formal dinner where teams network with industry professionals (judges in disguise) to earn support.",
     side: "right",
     time: "7:00 PM onwards",
   },
@@ -62,21 +68,24 @@ const timelineEvents: TimelineEvent[] = [
   {
     year: "Day 3 — Sunday",
     title: "Module 5: The Final Gambit",
-    description: "Teams build a final 5-minute pitch showcasing adaptability and learnings from all modules.",
+    description:
+      "Teams build a final 5-minute pitch showcasing adaptability and learnings from all modules.",
     side: "left",
     time: "9:00 AM - 12:00 PM",
   },
   {
     year: "Day 3 — Sunday",
     title: "Final Pitches & Grand Jury Q&A",
-    description: "Teams present to the Grand Jury followed by an in-depth Q&A session.",
+    description:
+      "Teams present to the Grand Jury followed by an in-depth Q&A session.",
     side: "right",
     time: "12:00 PM - 2:00 PM",
   },
   {
     year: "Day 3 — Sunday",
     title: "Closing Ceremony & Awards",
-    description: "Event wrap-up and awards announcement celebrating the winning teams.",
+    description:
+      "Event wrap-up and awards announcement celebrating the winning teams.",
     side: "left",
     time: "3:00 PM - 4:00 PM",
   },
@@ -125,12 +134,11 @@ export default function TimelinePage() {
         className="max-w-3xl mx-auto mb-16 text-center"
       >
         <p className="text-gray-300 text-lg leading-relaxed">
-          The competition is a marathon of modules where teams earn points based on 
-          their performance in each. The focus is on gamified, practical challenges 
-          rather than formal presentations.
+          The competition is a marathon of modules where teams earn points based
+          on their performance in each. The focus is on gamified, practical
+          challenges rather than formal presentations.
         </p>
       </motion.div>
-
 
       {/* Timeline events */}
       <div className="space-y-24">
@@ -147,7 +155,7 @@ export default function TimelinePage() {
               <>
                 {/* Left card */}
                 <div className="hidden md:flex justify-end w-1/2 pr-10">
-                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-6 rounded-lg border border-red-500/50 shadow-xl w-full max-w-md hover:scale-[1.02] transition">
+                  <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] p-6 rounded-lg border border-[#00ffff]/30 shadow-xl w-full max-w-md hover:scale-[1.02] hover:border-[#00ffff]/60 transition">
                     <div className="text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
                       <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
                       {event.year}
@@ -166,7 +174,7 @@ export default function TimelinePage() {
 
                 {/* Mobile card */}
                 <div className="md:hidden w-full pl-10">
-                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-5 rounded-lg border border-red-500/50 shadow-xl hover:scale-[1.02] transition">
+                  <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] p-5 rounded-lg border border-[#00ffff]/30 shadow-xl hover:scale-[1.02] hover:border-[#00ffff]/60 transition">
                     <div className="text-xs font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
                       <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
                       {event.year}
@@ -196,7 +204,7 @@ export default function TimelinePage() {
 
                 {/* Desktop card on the right */}
                 <div className="hidden md:flex justify-start w-1/2 pl-10">
-                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-6 rounded-lg border border-red-500/50 shadow-xl w-full max-w-md hover:scale-[1.02] transition">
+                  <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] p-6 rounded-lg border border-[#00ffff]/30 shadow-xl w-full max-w-md hover:scale-[1.02] hover:border-[#00ffff]/60 transition">
                     <div className="text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
                       <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
                       {event.year}
@@ -208,7 +216,7 @@ export default function TimelinePage() {
 
                 {/* Mobile card */}
                 <div className="md:hidden w-full pl-10">
-                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-5 rounded-lg border border-red-500/50 shadow-xl hover:scale-[1.02] transition">
+                  <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] p-5 rounded-lg border border-[#00ffff]/30 shadow-xl hover:scale-[1.02] hover:border-[#00ffff]/60 transition">
                     <div className="text-xs font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
                       <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
                       {event.year}
@@ -223,10 +231,8 @@ export default function TimelinePage() {
         ))}
       </div>
 
-
       {/* Footer spacing */}
       <div className="h-20"></div>
     </main>
   );
 }
-
