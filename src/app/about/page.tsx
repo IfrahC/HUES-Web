@@ -40,33 +40,37 @@ export default function About() {
   return (
     <main className="bg-black flex min-h-screen flex-col items-center justify-center p-20">
       {/*Our Story*/}
-      <section className="py-10 container mx-auto px-6 ">
-        <h2
-          className={`text-5xl font-bold text-center mb-12 transform transition-all duration-700 ease-out delay-300 ${
-            visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-          }`}
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-blue-500">
-            About Us
-          </span>
-          <p
-            className={`text-center text-lg max-w-8xl mx-auto text-gray-200 py-10 transform transition-all duration-700 ease-out delay-500 ${
+      <section className="py-10 container mx-auto px-6 md:grid-cols-2">
+        <div>
+          <h2
+            className={`text-4xl font-bold text-center mb-12 transform transition-all duration-700 ease-out ${
               visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
           >
-            The Habib University Entrepreneurship Society (HUES) was founded
-            with a vision to ignite the spirit of innovation and enterprise
-            within the HU community. What began as a small group of passionate
-            students with bold ideas has grown into a dynamic platform that
-            empowers aspiring entrepreneurs to transform their visions into
-            impactful ventures. Through workshops, competitions, mentorship
-            sessions, and collaborations with industry experts, HUES nurtures
-            creativity, leadership, and problem-solving among students. Our
-            story is one of curiosity, courage, and community—driven by the
-            belief that every idea, no matter how small, has the potential to
-            create meaningful change.
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#3b82f6]">
+              Summary
+            </span>
+          </h2>
+
+          <p
+            className={`text-center text-lg max-w-5xl mx-auto text-gray-200 transform transition-all duration-700 ease-out delay-150 ${
+              visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+          >
+            Habib University Launchpad is the flagship high-intensity entrepreneurship
+            competition designed to push students beyond traditional business thinking.
+            Over a rapid 3-day progression, teams move through immersive modules that
+            simulate real-world startup challenges — from ideation under pressure to
+            rapid prototyping, business modeling, and strategic decision-making.
+            <br /><br />
+            Each round is structured to test adaptability, teamwork, and resilience.
+            Instead of simply writing a business plan, participants must demonstrate
+            execution, creativity, and critical problem-solving in real time. The
+            competition concludes with a final pitch, where cumulative performance
+            determines the winning team — earning seed funding, recognition, and
+            future entrepreneurial opportunities.
           </p>
-        </h2>
+        </div>
       </section>
       
       {/* Judging Criteria */}
@@ -138,39 +142,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Summary */}
-      <section className="py-10 container mx-auto px-6 md:grid-cols-2">
-        <div>
-          <h2
-            className={`text-4xl font-bold text-center mb-12 transform transition-all duration-700 ease-out ${
-              visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
-          >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#3b82f6]">
-              Summary
-            </span>
-          </h2>
-
-          <p
-            className={`text-center text-lg max-w-5xl mx-auto text-gray-200 transform transition-all duration-700 ease-out delay-150 ${
-              visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
-          >
-            Habib University Launchpad is the flagship high-intensity entrepreneurship
-            competition designed to push students beyond traditional business thinking.
-            Over a rapid 3-day progression, teams move through immersive modules that
-            simulate real-world startup challenges — from ideation under pressure to
-            rapid prototyping, business modeling, and strategic decision-making.
-            <br /><br />
-            Each round is structured to test adaptability, teamwork, and resilience.
-            Instead of simply writing a business plan, participants must demonstrate
-            execution, creativity, and critical problem-solving in real time. The
-            competition concludes with a final pitch, where cumulative performance
-            determines the winning team — earning seed funding, recognition, and
-            future entrepreneurial opportunities.
-          </p>
-        </div>
-      </section>
 
       {/*Affiliations */}
       <section className=" container max-w-auto">
