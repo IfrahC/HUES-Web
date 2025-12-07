@@ -8,50 +8,77 @@ interface TimelineEvent {
   title: string;
   description: string;
   side: "left" | "right";
+  time: string;
 }
 
 const timelineEvents: TimelineEvent[] = [
+  // Day 1 — Friday
   {
-    year: "1960's",
-    title: "Hypertext Born",
-    description: "The concept of hypertext was introduced, laying the foundation for interconnected documents and the future of web navigation.",
+    year: "Day 1 — Friday",
+    title: "Team Registration & Welcome Lunch",
+    description: "Kick off Launchpad with team check-in and a networking lunch to meet fellow participants.",
+    side: "left",
+    time: "2:00 PM - 4:00 PM",
+  },
+  {
+    year: "Day 1 — Friday",
+    title: "Opening Ceremony",
+    description: "High-energy kickoff, rule breakdown, and an inspiring talk from a young founder.",
     side: "right",
+    time: "4:00 PM - 5:00 PM",
   },
   {
-    year: "1980's",
-    title: "Hypertext Evolution",
-    description: "Hypertext systems evolved with early implementations that would later inspire the World Wide Web architecture.",
+    year: "Day 1 — Friday",
+    title: "Module 1: The Idea Auction",
+    description: "Teams bid using virtual seed money on limited resources, problems, and advantages — testing valuation and strategy.",
     side: "left",
+    time: "5:00 PM - 8:00 PM",
   },
+
+  // Day 2 — Saturday
   {
-    year: "1990's",
-    title: "Custom Code",
-    description: "Web developers began writing custom code to create unique, personalized web experiences beyond basic HTML.",
-    side: "left",
-  },
-  {
-    year: "1990's",
-    title: "PHP Born",
-    description: "PHP (Hypertext Preprocessor) was created, revolutionizing server-side scripting and dynamic web content generation.",
+    year: "Day 2 — Saturday",
+    title: "Module 2: Viral Vendetta",
+    description: "A marketing challenge to create a full digital campaign for a quirky assigned product.",
     side: "right",
+    time: "9:00 AM - 1:00 PM",
   },
   {
-    year: "1995",
-    title: "HTML3, GIF, Flash",
-    description: "HTML3 introduced advanced formatting, GIF animations brought motion to the web, and Flash enabled rich multimedia experiences.",
+    year: "Day 2 — Saturday",
+    title: "Module 3: Corporate Cataclysm",
+    description: "Crisis simulation - PR disaster, supply chain collapse, ethics challenge. Teams present a response plan.",
     side: "left",
+    time: "2:00 PM - 6:00 PM",
   },
   {
-    year: "1996",
-    title: "JavaScript",
-    description: "JavaScript was introduced, enabling interactive web pages and client-side scripting that transformed static sites into dynamic applications.",
+    year: "Day 2 — Saturday",
+    title: "Module 4: The Investor's Gala",
+    description: "A formal dinner where teams network with industry professionals (judges in disguise) to earn support.",
     side: "right",
+    time: "7:00 PM onwards",
+  },
+
+  // Day 3 — Sunday
+  {
+    year: "Day 3 — Sunday",
+    title: "Module 5: The Final Gambit",
+    description: "Teams build a final 5-minute pitch showcasing adaptability and learnings from all modules.",
+    side: "left",
+    time: "9:00 AM - 12:00 PM",
   },
   {
-    year: "2008",
-    title: "Responsiveness",
-    description: "The responsive web design movement began, ensuring websites adapt seamlessly across all devices and screen sizes.",
+    year: "Day 3 — Sunday",
+    title: "Final Pitches & Grand Jury Q&A",
+    description: "Teams present to the Grand Jury followed by an in-depth Q&A session.",
+    side: "right",
+    time: "12:00 PM - 2:00 PM",
+  },
+  {
+    year: "Day 3 — Sunday",
+    title: "Closing Ceremony & Awards",
+    description: "Event wrap-up and awards announcement celebrating the winning teams.",
     side: "left",
+    time: "3:00 PM - 4:00 PM",
   },
 ];
 
@@ -84,122 +111,118 @@ export default function TimelinePage() {
           >
             <h1 className="text-5xl md:text-6xl font-extrabold text-center">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-blue-500">
-                A HISTORY OF WEB DESIGN
+                Program Details & Structure
               </span>
             </h1>
           </motion.div>
         </div>
       </div>
 
-      {/* Timeline */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 pb-20">
-        <div className="relative">
-          {/* Vertical timeline line - hidden on mobile, visible on desktop */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full">
-            <div className="w-full h-full bg-gradient-to-b from-[#00ffff] via-blue-500 to-[#00ffff] opacity-40" 
-                 style={{ 
-                   backgroundImage: "repeating-linear-gradient(180deg, transparent, transparent 15px, rgba(0,255,255,0.5) 15px, rgba(0,255,255,0.5) 20px)"
-                 }}>
-            </div>
-          </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 20 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl mx-auto mb-16 text-center"
+      >
+        <p className="text-gray-300 text-lg leading-relaxed">
+          The competition is a marathon of modules where teams earn points based on 
+          their performance in each. The focus is on gamified, practical challenges 
+          rather than formal presentations.
+        </p>
+      </motion.div>
 
-          {/* Mobile timeline line */}
-          <div className="md:hidden absolute left-6 w-0.5 h-full bg-gradient-to-b from-[#00ffff] via-blue-500 to-[#00ffff] opacity-40"
-               style={{ 
-                 backgroundImage: "repeating-linear-gradient(180deg, transparent, transparent 15px, rgba(0,255,255,0.5) 15px, rgba(0,255,255,0.5) 20px)"
-               }}>
-          </div>
 
-          {/* Timeline events */}
-          <div className="space-y-16 md:space-y-24">
-            {timelineEvents.map((event, index) => (
-              <motion.div
-                key={`${event.year}-${index}`}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ 
-                  opacity: visible ? 1 : 0, 
-                  y: visible ? 0 : 50 
-                }}
-                transition={{ 
-                  duration: 0.7, 
-                  delay: index * 0.15 + 0.3 
-                }}
-                className="relative flex items-center w-full"
-              >
-                {/* Left side: Spacer -> Card -> Marker */}
-                {event.side === "left" && (
-                  <>
-                    <div className="hidden md:block w-5/12"></div>
-                    <div className="w-full md:w-5/12 relative ml-12 md:ml-0 md:pr-12">
-                      <div
-                        className="relative bg-gradient-to-br from-red-600/95 to-red-700/95 p-5 md:p-6 rounded-lg shadow-xl border border-red-500/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(220,38,38,0.7)] group"
-                      >
-                        <div className="relative z-10">
-                          <div className="text-xs md:text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
-                            {event.year}
-                          </div>
-                          <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-white">
-                            {event.title}
-                          </h3>
-                          <p className="text-sm md:text-base text-gray-200 leading-relaxed">
-                            {event.description}
-                          </p>
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff]/0 to-blue-500/0 group-hover:from-[#00ffff]/15 group-hover:to-blue-500/15 rounded-lg transition-all duration-300"></div>
-                        {/* Arrow pointer on desktop */}
-                        <div className="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-l-[12px] border-l-red-600"></div>
-                      </div>
+      {/* Timeline events */}
+      <div className="space-y-24">
+        {timelineEvents.map((event, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 50 }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+            className="relative flex w-full"
+          >
+            {/* LEFT EVENT */}
+            {event.side === "left" && (
+              <>
+                {/* Left card */}
+                <div className="hidden md:flex justify-end w-1/2 pr-10">
+                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-6 rounded-lg border border-red-500/50 shadow-xl w-full max-w-md hover:scale-[1.02] transition">
+                    <div className="text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
+                      {event.year}
                     </div>
-                    <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-[#0d0d0d] shadow-lg z-20 items-center justify-center">
-                      <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></div>
-                    </div>
-                    <div className="md:hidden absolute left-6 transform -translate-x-1/2 w-5 h-5 bg-orange-500 rounded-full border-2 border-[#0d0d0d] shadow-lg z-20 flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-orange-300 rounded-full animate-pulse"></div>
-                    </div>
-                    <div className="hidden md:block w-5/12"></div>
-                  </>
-                )}
+                    <h3 className="text-2xl font-bold mb-3">{event.title}</h3>
+                    <p className="text-gray-300">{event.description}</p>
+                  </div>
+                </div>
 
-                {/* Right side: Spacer -> Marker -> Card */}
-                {event.side === "right" && (
-                  <>
-                    <div className="hidden md:block w-5/12"></div>
-                    <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-[#0d0d0d] shadow-lg z-20 items-center justify-center">
-                      <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></div>
+                {/* Center marker */}
+                <div className="flex items-center justify-center">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-[#0d0d0d] shadow-lg z-20">
+                    <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse mx-auto mt-1.5"></div>
+                  </div>
+                </div>
+
+                {/* Mobile card */}
+                <div className="md:hidden w-full pl-10">
+                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-5 rounded-lg border border-red-500/50 shadow-xl hover:scale-[1.02] transition">
+                    <div className="text-xs font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
+                      {event.year}
                     </div>
-                    <div className="md:hidden absolute left-6 transform -translate-x-1/2 w-5 h-5 bg-orange-500 rounded-full border-2 border-[#0d0d0d] shadow-lg z-20 flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-orange-300 rounded-full animate-pulse"></div>
+                    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+                    <p className="text-gray-300 text-sm">{event.description}</p>
+                  </div>
+                </div>
+
+                {/* Right empty spacer */}
+                <div className="hidden md:block w-1/2"></div>
+              </>
+            )}
+
+            {/* RIGHT EVENT */}
+            {event.side === "right" && (
+              <>
+                {/* Left empty spacer */}
+                <div className="hidden md:block w-1/2"></div>
+
+                {/* Center marker */}
+                <div className="flex items-center justify-center">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-[#0d0d0d] shadow-lg z-20">
+                    <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse mx-auto mt-1.5"></div>
+                  </div>
+                </div>
+
+                {/* Desktop card on the right */}
+                <div className="hidden md:flex justify-start w-1/2 pl-10">
+                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-6 rounded-lg border border-red-500/50 shadow-xl w-full max-w-md hover:scale-[1.02] transition">
+                    <div className="text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
+                      {event.year}
                     </div>
-                    <div className="w-full md:w-5/12 relative ml-12 md:ml-0 md:pl-12">
-                      <div
-                        className="relative bg-gradient-to-br from-red-600/95 to-red-700/95 p-5 md:p-6 rounded-lg shadow-xl border border-red-500/60 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(220,38,38,0.7)] group"
-                      >
-                        <div className="relative z-10">
-                          <div className="text-xs md:text-sm font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
-                            {event.year}
-                          </div>
-                          <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 text-white">
-                            {event.title}
-                          </h3>
-                          <p className="text-sm md:text-base text-gray-200 leading-relaxed">
-                            {event.description}
-                          </p>
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff]/0 to-blue-500/0 group-hover:from-[#00ffff]/15 group-hover:to-blue-500/15 rounded-lg transition-all duration-300"></div>
-                        {/* Arrow pointer on desktop */}
-                        <div className="hidden md:block absolute -left-3 top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-r-[12px] border-r-red-600"></div>
-                      </div>
+                    <h3 className="text-2xl font-bold mb-3">{event.title}</h3>
+                    <p className="text-gray-300">{event.description}</p>
+                  </div>
+                </div>
+
+                {/* Mobile card */}
+                <div className="md:hidden w-full pl-10">
+                  <div className="bg-gradient-to-br from-red-600 to-red-700 p-5 rounded-lg border border-red-500/50 shadow-xl hover:scale-[1.02] transition">
+                    <div className="text-xs font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
+                      {event.year}
                     </div>
-                    <div className="hidden md:block w-5/12"></div>
-                  </>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+                    <p className="text-gray-300 text-sm">{event.description}</p>
+                  </div>
+                </div>
+              </>
+            )}
+          </motion.div>
+        ))}
       </div>
+
 
       {/* Footer spacing */}
       <div className="h-20"></div>

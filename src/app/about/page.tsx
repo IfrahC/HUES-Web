@@ -39,32 +39,6 @@ export default function About() {
   }, []);
   return (
     <main className="bg-black flex min-h-screen flex-col items-center justify-center p-20">
-      {/*about us */}
-      <section className="py-20 container mx-auto px-6 ">
-        <h2
-          className={`text-6xl font-bold text-center mb-12 transform transition-all duration-700 ease-out ${
-            visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-          }`}
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-blue-500">
-            About Us
-          </span>
-        </h2>
-        <p
-          className={`text-center text-lg max-w-8xl mx-auto text-gray-200 transform transition-all duration-700 ease-out delay-150 ${
-            visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-          }`}
-        >
-          We are a team dedicated to building modern, responsive, and
-          user-friendly web applications that combine creativity with
-          cutting-edge technology. Our focus is on delivering seamless digital
-          experiences that not only look great across all devices but also
-          perform efficiently and intuitively. With a passion for innovation and
-          a commitment to quality, we aim to craft web solutions that empower
-          users, enhance accessibility, and bring ideas to life through
-          thoughtful design and robust functionality.
-        </p>
-      </section>
       {/*Our Story*/}
       <section className="py-10 container mx-auto px-6 ">
         <h2
@@ -73,7 +47,7 @@ export default function About() {
           }`}
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-blue-500">
-            Our Story
+            About Us
           </span>
           <p
             className={`text-center text-lg max-w-8xl mx-auto text-gray-200 py-10 transform transition-all duration-700 ease-out delay-500 ${
