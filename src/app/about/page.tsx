@@ -9,6 +9,38 @@ import Image from "next/image";
 import { history } from "../DataAbout/history";
 import { testimonials } from "../DataAbout/testimonials";
 
+// Animated Currency Counter
+function AnimatedCounter({ value }: { value: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = value;
+    const duration = 1500; 
+    const stepTime = 15;
+
+    const increment = (end - start) / (duration / stepTime);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        start = end;
+        clearInterval(timer);
+      }
+      setCount(Math.floor(start));
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return (
+    <div className="text-center text-4xl font-extrabold text-[#3b82f6]">
+      PKR {count.toLocaleString()}
+    </div>
+  );
+}
+
+
 export default function About() {
   const settings = {
     dots: true,
@@ -72,6 +104,67 @@ export default function About() {
           </p>
         </div>
       </section>
+
+      {/* Prizes & Incentives */}
+      <section className="py-20 container mx-auto px-6">
+        <h2
+          className={`text-4xl font-bold text-center mb-12 transform transition-all duration-700 ease-out ${
+            visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
+        >
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#3b82f6]">
+            Prizes & Incentives
+          </span>
+        </h2>
+
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto transform transition-all duration-700 ease-out delay-150 ${
+            visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
+        >
+          {/* Prize Box Component */}
+          {[
+            { title: "🏆 Winner", amount: 250000 },
+            { title: "🥈 Runner-Up", amount: 150000 },
+            { title: "🥉 Runner-Up", amount: 75000 },
+          ].map((prize, idx) => (
+            <div key={idx} className="relative">
+              
+              {/* Floating glow behind the card */}
+              <div className="absolute inset-0 rounded-2xl bg-[#00ffff]/20 blur-2xl animate-pulse-slow"></div>
+
+              {/* Prize Box */}
+              <div className="relative p-8 border border-[#00ffff]/40 rounded-2xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/40 transition transform hover:scale-[1.02]">
+                <h3 className="text-3xl font-bold text-[#00ffff] mb-4 text-center">
+                  {prize.title}
+                </h3>
+
+                {/* Animated Number */}
+                <AnimatedCounter value={prize.amount} />
+
+                <p className="text-gray-300 mt-4 text-center text-sm tracking-wide">
+                  Seed Funding
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Separate Mentorship & Networking Perk */}
+        <div
+          className={`max-w-3xl mx-auto mt-16 text-center text-lg text-gray-300 leading-relaxed transform transition-all duration-700 ease-out delay-300 ${
+            visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
+        >
+          <span className="text-[#00ffff] font-semibold text-2xl block mb-3">
+            🌟 Finalist Perks
+          </span>
+          Exclusive mentorship opportunities and access to private networking events
+          with founders, investors, and industry professionals.
+        </div>
+      </section>
+
+
       
       {/* Judging Criteria */}
       <section className="py-10 container mx-auto px-6">
