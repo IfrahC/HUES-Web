@@ -24,7 +24,7 @@ export default function Header() {
             priority
           />
         </Link>
-        <h1 className="text-xl font-semibold">HUES Launchpad</h1>
+        <h1 className="text-xl font-semibold">HU Launchpad</h1>
       </div>
       <nav className="space-x-4">
         <Link href="/" className={linkClass('/')}>
