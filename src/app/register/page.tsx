@@ -29,6 +29,7 @@ export default function LaunchpadRegistration() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>();
 
@@ -71,6 +72,8 @@ export default function LaunchpadRegistration() {
 
       toast.success("Registration submitted 🎉");
 
+      // Clear the form after successful submission
+      reset();
     } catch (err) {
       console.error(err);
       toast.error("Error submitting form");
