@@ -36,13 +36,13 @@ export default function Header() {
         <Link href="/timeline" className={linkClass('/timeline')}>
           Timeline
         </Link>
-        <Link href="/events" className={linkClass('/events')}> {/* Need to make */}
+        <Link href="/events" className={linkClass('/events')}>
           Events
         </Link>
-        <Link href="/register" className={linkClass('/register')}> {/* Need to make */}
+        <Link href="/register" className={linkClass('/register')}>
           Register
         </Link>
-        <Link href="/contact" className={linkClass('/contact')}> {/* Need to make */}
+        <Link href="/contact" className={linkClass('/contact')}>
           Contact
         </Link>
       </nav>
