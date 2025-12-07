@@ -67,11 +67,11 @@ export default function LaunchpadRegistration() {
           HU Launchpad 2026 — Team Registration
         </h1>
         <p className="text-[#00ffff] text-center max-w-2xl mx-auto mb-6 font-semibold">
-          WARNING: This is not a standard hackathon. HU Launchpad is a 3-day high-intensity entrepreneurship simulation. By registering, you agree to commit fully to the schedule.
+          WARNING: This is not a standard hackathon. HU Launchpad is a 3-day high-intensity entrepreneurship simulation. Registration does not guarentee participation. Teams will be vetted based on their startup ideas and team composition and will be contacted separately.
         </p>
         <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10">
-          Status: <span className="text-[#00ffff] font-semibold">OPEN</span> — Limited to first 25 teams.<br />
-          January 23rd–25th • Habib University • PKR 6,000/team (Non-refundable)
+          Status: <span className="text-[#00ffff] font-semibold">OPEN</span><br />
+          January 23rd-25th • Habib University • PKR 6,000/team (Non-refundable)
         </p>
 
         <form
@@ -211,19 +211,19 @@ export default function LaunchpadRegistration() {
           <section>
             <h2 className="text-2xl font-bold mb-4 text-[#00ffff]">Payment</h2>
             <p className="text-gray-400 mb-4">
-              To secure your slot, the <span className="text-[#00ffff] font-semibold">PKR 6,000</span> fee must be transferred immediately. Slots are confirmed on a first-come-first-serve basis based on payment timestamp.
+              Once your team has been selected, the team lead will be contacted and will be asked to transfer the <span className="text-[#00ffff] font-semibold">PKR 6,000</span> fee. Slots are only confirmed based on payment.
             </p>
 
-            <div className="mb-4">
+            {/* <div className="mb-4">
               <h3 className="font-semibold mb-2">Bank Details:</h3>
               <ul className="text-gray-300 list-disc list-inside">
                 <li>Bank Name: [Insert Bank]</li>
                 <li>Account Title: Habib University Entrepreneurship Society</li>
                 <li>Account Number / IBAN: [Insert IBAN/Account #]</li>
               </ul>
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <label className="font-semibold mb-1 block">Upload Payment Proof *</label>
               <input
                 type="file"
@@ -234,7 +234,7 @@ export default function LaunchpadRegistration() {
               {errors.paymentProof && (
                 <p className="text-red-500 mt-1 text-sm">{errors.paymentProof.message}</p>
               )}
-            </div>
+            </div> */}
           </section>
 
           {/* Section 5 — Agreements */}
@@ -276,7 +276,7 @@ export default function LaunchpadRegistration() {
                     {...register("agreeRules", { required: "Required" })}
                     className="w-4 h-4"
                   />
-                  I have read and agree to the event rules and regulations.
+                  I understand that registration does not guarantee participation and that teams will be vetted.
                 </label>
                 {errors.agreeRules && (
                   <p className="text-red-500 text-sm">{errors.agreeRules.message}</p>
