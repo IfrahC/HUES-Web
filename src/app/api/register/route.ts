@@ -4,84 +4,76 @@ import { Timestamp } from "firebase-admin/firestore";
 
 export async function POST(req: Request) {
   try {
-    // Check if Firebase is configured
-    if (!adminDb) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Firebase is not configured. Please add valid credentials to .env file."
-        },
-        { status: 503 }
-      );
-    }
+    const body = await req.json();
 
-    const data = await req.json();
-    console.log("Received registration data:", data);
-    const { name, email, phone, university, year, paymentStatus } = data;
+    const { 
+      startupName, school, leadName, leadEmail, 
+      leadPhone, leadCnic, member2Name, member2Cnic,
+      member3Name, member3Cnic, member4Name, member4Cnic,
+      member5Name, member5Cnic
+    } = body;
 
-    // Validate required fields
-    if (!name || !email || !phone || !university || !year) {
-      return NextResponse.json(
-        { success: false, message: "All fields required" },
-        { status: 400 }
-      );
-    }
+    // Firestore
+    const docRef = await adminDb.collection("launchpadRegistrations").add({
+      startupName,
+      school,
+      leadName,
+      leadEmail,
+      leadPhone,
+      leadCnic,
+      member2Name,
+      member2Cnic,
+      member3Name: member3Name || "",
+      member3Cnic: member3Cnic || "",
+      member4Name: member4Name || "",
+      member4Cnic: member4Cnic || "",
+      member5Name: member5Name || "",
+      member5Cnic: member5Cnic || "",
+      timestamp: Timestamp.now(),
+    });
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { success: false, message: "Invalid email format" },
-        { status: 400 }
-      );
-    }
+    const docId = docRef.id;
 
-    // Validate phone format (allows international formats with +, -, spaces, parentheses)
-    const phoneRegex = /^[\d\s\-\+\(\)]{10,20}$/;
-    if (!phoneRegex.test(phone)) {
-      return NextResponse.json(
-        { success: false, message: "Invalid phone number format" },
-        { status: 400 }
-      );
-    }
-
-    // Check if email already exists (limit to 1 for better performance)
-    const existingRegistrations = await adminDb
-      .collection("registrations")
-      .where("email", "==", email)
-      .limit(1)
-      .get();
-
-    if (!existingRegistrations.empty) {
-      return NextResponse.json(
-        { success: false, message: "Email already registered" },
-        { status: 409 }
-      );
-    }
-
-    // Save registration data to Firestore
-    const registrationData = {
-      name,
-      email,
-      phone,
-      university,
-      year,
-      paymentStatus: paymentStatus || "pending",
-      registeredAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+    // Google Sheets payload
+    const sheetPayload = {
+      id: docId,
+      startupName,
+      school,
+      leadName,
+      leadEmail,
+      leadPhone,
+      leadCnic,
+      member2Name,
+      member2Cnic,
+      member3Name: member3Name || "",
+      member3Cnic: member3Cnic || "",
+      member4Name: member4Name || "",
+      member4Cnic: member4Cnic || "",
+      member5Name: member5Name || "",
+      member5Cnic: member5Cnic || "",
+      timestamp: new Date().toISOString()
     };
 
-    const docRef = await adminDb.collection("registrations").add(registrationData);
+    // Send to Google Sheets 
+    const googleWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL!;
+    
+    fetch(googleWebhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(sheetPayload),
+    }).catch(err =>
+      console.error("Google Sheets sync error:", err)
+    );
 
     return NextResponse.json({
       success: true,
-      message: "Registration successful",
-      registrationId: docRef.id,
+      id: docId,
     });
+
   } catch (error) {
     console.error("Registration error:", error);
     return NextResponse.json(
-      { success: false, message: "Server error. Please try again later." },
+      { success: false, message: "Server error" },
       { status: 500 }
     );
   }
