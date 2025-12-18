@@ -25,6 +25,13 @@ type FormData = {
   paymentProof: FileList;
 };
 
+// Validation patterns
+const nameRegex = /^[A-Za-z][A-Za-z '.\-]{1,49}$/; // letters, spaces, apostrophes, hyphens
+const teamRegex = /^[A-Za-z0-9 &()'._\-]{2,100}$/; // team/school: broader characters, 2-100 length
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRegex = /^[0-9+\-()\s]{10,20}$/; // 10-20 chars, digits and phone symbols
+const cnicRegex = /^(?:\d{13}|\d{5}-\d{7}-\d)$/; // 13 digits or 5-7-1 with dashes
+
 export default function LaunchpadRegistration() {
   const {
     register,
@@ -113,9 +120,23 @@ export default function LaunchpadRegistration() {
                   Startup / Team Name *
                 </label>
                 <input
-                  {...register("startupName", { required: "Required" })}
+                  {...register("startupName", {
+                    required: "Required",
+                    minLength: { value: 2, message: "Too short" },
+                    maxLength: { value: 100, message: "Too long" },
+                    pattern: {
+                      value: teamRegex,
+                      message: "Only letters, numbers and common symbols",
+                    },
+                  })}
+                  placeholder="e.g., Team Phoenix"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.startupName && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.startupName.message as string}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -123,9 +144,23 @@ export default function LaunchpadRegistration() {
                   School / College *
                 </label>
                 <input
-                  {...register("school", { required: "Required" })}
+                  {...register("school", {
+                    required: "Required",
+                    minLength: { value: 2, message: "Too short" },
+                    maxLength: { value: 100, message: "Too long" },
+                    pattern: {
+                      value: teamRegex,
+                      message: "Only letters, numbers and common symbols",
+                    },
+                  })}
+                  placeholder="e.g., Habib University"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.school && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.school.message as string}
+                  </p>
+                )}
               </div>
             </div>
           </section>
@@ -139,18 +174,44 @@ export default function LaunchpadRegistration() {
               <div>
                 <label className="font-semibold mb-1 block">Full Name *</label>
                 <input
-                  {...register("leadName", { required: "Required" })}
+                  {...register("leadName", {
+                    required: "Required",
+                    minLength: { value: 2, message: "Too short" },
+                    maxLength: { value: 50, message: "Too long" },
+                    pattern: {
+                      value: nameRegex,
+                      message: "Use letters, spaces, ' or -",
+                    },
+                  })}
+                  placeholder="e.g., Ayesha Khan"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.leadName && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.leadName.message as string}
+                  </p>
+                )}
               </div>
 
               <div>
                 <label className="font-semibold mb-1 block">Email *</label>
                 <input
                   type="email"
-                  {...register("leadEmail", { required: "Required" })}
+                  {...register("leadEmail", {
+                    required: "Required",
+                    pattern: {
+                      value: emailRegex,
+                      message: "Enter a valid email",
+                    },
+                  })}
+                  placeholder="name@example.com"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.leadEmail && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.leadEmail.message as string}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -159,17 +220,43 @@ export default function LaunchpadRegistration() {
                 </label>
                 <input
                   type="tel"
-                  {...register("leadPhone", { required: "Required" })}
+                  {...register("leadPhone", {
+                    required: "Required",
+                    pattern: {
+                      value: phoneRegex,
+                      message: "Enter a valid phone number",
+                    },
+                  })}
+                  inputMode="tel"
+                  placeholder="e.g., +92 300 1234567"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.leadPhone && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.leadPhone.message as string}
+                  </p>
+                )}
               </div>
 
               <div>
                 <label className="font-semibold mb-1 block">CNIC *</label>
                 <input
-                  {...register("leadCnic", { required: "Required" })}
+                  {...register("leadCnic", {
+                    required: "Required",
+                    pattern: {
+                      value: cnicRegex,
+                      message: "Use 13 digits or 12345-1234567-1",
+                    },
+                  })}
+                  inputMode="numeric"
+                  placeholder="12345-1234567-1"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.leadCnic && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.leadCnic.message as string}
+                  </p>
+                )}
               </div>
             </div>
           </section>
@@ -186,18 +273,44 @@ export default function LaunchpadRegistration() {
                   Member 2 Name *
                 </label>
                 <input
-                  {...register("member2Name", { required: "Required" })}
+                  {...register("member2Name", {
+                    required: "Required",
+                    minLength: { value: 2, message: "Too short" },
+                    maxLength: { value: 50, message: "Too long" },
+                    pattern: {
+                      value: nameRegex,
+                      message: "Use letters, spaces, ' or -",
+                    },
+                  })}
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member2Name && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member2Name.message as string}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="font-semibold mb-1 block">
                   Member 2 CNIC *
                 </label>
                 <input
-                  {...register("member2Cnic", { required: "Required" })}
+                  {...register("member2Cnic", {
+                    required: "Required",
+                    pattern: {
+                      value: cnicRegex,
+                      message: "Use 13 digits or 12345-1234567-1",
+                    },
+                  })}
+                  inputMode="numeric"
+                  placeholder="12345-1234567-1"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member2Cnic && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member2Cnic.message as string}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -205,18 +318,37 @@ export default function LaunchpadRegistration() {
                   Member 3 Name
                 </label>
                 <input
-                  {...register("member3Name")}
+                  {...register("member3Name", {
+                    validate: (v) =>
+                      !v || nameRegex.test(v) || "Use letters, spaces, ' or -",
+                  })}
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member3Name && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member3Name.message as string}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="font-semibold mb-1 block">
                   Member 3 CNIC
                 </label>
                 <input
-                  {...register("member3Cnic")}
+                  {...register("member3Cnic", {
+                    validate: (v) =>
+                      !v ||
+                      cnicRegex.test(v) ||
+                      "Use 13 digits or 12345-1234567-1",
+                  })}
+                  inputMode="numeric"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member3Cnic && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member3Cnic.message as string}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -224,18 +356,37 @@ export default function LaunchpadRegistration() {
                   Member 4 Name
                 </label>
                 <input
-                  {...register("member4Name")}
+                  {...register("member4Name", {
+                    validate: (v) =>
+                      !v || nameRegex.test(v) || "Use letters, spaces, ' or -",
+                  })}
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member4Name && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member4Name.message as string}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="font-semibold mb-1 block">
                   Member 4 CNIC
                 </label>
                 <input
-                  {...register("member4Cnic")}
+                  {...register("member4Cnic", {
+                    validate: (v) =>
+                      !v ||
+                      cnicRegex.test(v) ||
+                      "Use 13 digits or 12345-1234567-1",
+                  })}
+                  inputMode="numeric"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member4Cnic && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member4Cnic.message as string}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -243,18 +394,37 @@ export default function LaunchpadRegistration() {
                   Member 5 Name
                 </label>
                 <input
-                  {...register("member5Name")}
+                  {...register("member5Name", {
+                    validate: (v) =>
+                      !v || nameRegex.test(v) || "Use letters, spaces, ' or -",
+                  })}
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member5Name && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member5Name.message as string}
+                  </p>
+                )}
               </div>
               <div>
                 <label className="font-semibold mb-1 block">
                   Member 5 CNIC
                 </label>
                 <input
-                  {...register("member5Cnic")}
+                  {...register("member5Cnic", {
+                    validate: (v) =>
+                      !v ||
+                      cnicRegex.test(v) ||
+                      "Use 13 digits or 12345-1234567-1",
+                  })}
+                  inputMode="numeric"
                   className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
                 />
+                {errors.member5Cnic && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.member5Cnic.message as string}
+                  </p>
+                )}
               </div>
             </div>
           </section>
