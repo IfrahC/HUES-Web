@@ -70,7 +70,7 @@ export default function About() {
     return () => clearTimeout(t);
   }, []);
   return (
-    <main className="bg-black flex min-h-screen flex-col items-center justify-center p-20">
+    <main className="bg-black flex min-h-screen flex-col items-center justify-center p-5">
       {/*Our Story*/}
       <section className="py-10 container mx-auto px-6 md:grid-cols-2">
         <div>
@@ -84,11 +84,12 @@ export default function About() {
             </span>
           </h2>
 
-          <p
+          {/* <p
             className={`text-center text-lg max-w-5xl mx-auto text-gray-200 transform transition-all duration-700 ease-out delay-150 ${
               visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
-          >
+          > */}
+          <p className="text-center text-base sm:text-lg max-w-prose mx-auto text-gray-200 leading-relaxed sm:leading-loose">
             Habib University Launchpad is the flagship high-intensity entrepreneurship
             competition designed to push students beyond traditional business thinking.
             Over a rapid 3-day progression, teams move through immersive modules that
