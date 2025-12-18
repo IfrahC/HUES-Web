@@ -16,7 +16,7 @@ function AnimatedCounter({ value }: { value: number }) {
   useEffect(() => {
     let start = 0;
     const end = value;
-    const duration = 1500; 
+    const duration = 1500;
     const stepTime = 15;
 
     const increment = (end - start) / (duration / stepTime);
@@ -39,7 +39,6 @@ function AnimatedCounter({ value }: { value: number }) {
     </div>
   );
 }
-
 
 export default function About() {
   const settings = {
@@ -90,18 +89,20 @@ export default function About() {
             }`}
           > */}
           <p className="text-center text-base sm:text-lg max-w-prose mx-auto text-gray-200 leading-relaxed sm:leading-loose">
-            Habib University Launchpad is the flagship high-intensity entrepreneurship
-            competition designed to push students beyond traditional business thinking.
-            Over a rapid 3-day progression, teams move through immersive modules that
-            simulate real-world startup challenges — from ideation under pressure to
-            rapid prototyping, business modeling, and strategic decision-making.
-            <br /><br />
-            Each round is structured to test adaptability, teamwork, and resilience.
-            Instead of simply writing a business plan, participants must demonstrate
-            execution, creativity, and critical problem-solving in real time. The
-            competition concludes with a final pitch, where cumulative performance
-            determines the winning team — earning seed funding, recognition, and
-            future entrepreneurial opportunities.
+            Habib University Launchpad is the flagship high-intensity
+            entrepreneurship competition designed to push students beyond
+            traditional business thinking. Over a rapid 3-day progression, teams
+            move through immersive modules that simulate real-world startup
+            challenges — from ideation under pressure to rapid prototyping,
+            business modeling, and strategic decision-making.
+            <br />
+            <br />
+            Each round is structured to test adaptability, teamwork, and
+            resilience. Instead of simply writing a business plan, participants
+            must demonstrate execution, creativity, and critical problem-solving
+            in real time. The competition concludes with a final pitch, where
+            cumulative performance determines the winning team — earning seed
+            funding, recognition, and future entrepreneurial opportunities.
           </p>
         </div>
       </section>
@@ -125,17 +126,16 @@ export default function About() {
         >
           {/* Prize Box Component */}
           {[
-            { title: "🏆 Winner", amount: 250000 },
-            { title: "🥈 Runner-Up", amount: 150000 },
-            { title: "🥉 Runner-Up", amount: 75000 },
+            { title: "🏆 Winner", amount: 60000, trophy: true },
+            { title: "🥈 Runner-Up", amount: 50000, trophy: false },
+            { title: "🥉 Runner-Up", amount: 40000, trophy: false },
           ].map((prize, idx) => (
-            <div key={idx} className="relative">
-              
+            <div key={idx} className="relative h-full">
               {/* Floating glow behind the card */}
               <div className="absolute inset-0 rounded-2xl bg-[#00ffff]/20 blur-2xl animate-pulse-slow"></div>
 
               {/* Prize Box */}
-              <div className="relative p-8 border border-[#00ffff]/40 rounded-2xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/40 transition transform hover:scale-[1.02]">
+              <div className="relative flex h-full flex-col justify-between p-8 border border-[#00ffff]/40 rounded-2xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/40 transition transform hover:scale-[1.02]">
                 <h3 className="text-3xl font-bold text-[#00ffff] mb-4 text-center">
                   {prize.title}
                 </h3>
@@ -145,6 +145,11 @@ export default function About() {
 
                 <p className="text-gray-300 mt-4 text-center text-sm tracking-wide">
                   Seed Funding
+                  {prize.trophy && (
+                    <span className="block text-[#00ffff] font-semibold mt-1">
+                      🏆 Trophy of Achievement
+                    </span>
+                  )}
                 </p>
               </div>
             </div>
@@ -160,13 +165,11 @@ export default function About() {
           <span className="text-[#00ffff] font-semibold text-2xl block mb-3">
             🌟 Finalist Perks
           </span>
-          Exclusive mentorship opportunities and access to private networking events
-          with founders, investors, and industry professionals.
+          All finalists will receive mentorship opportunities and access to
+          networking events
         </div>
       </section>
 
-
-      
       {/* Judging Criteria */}
       <section className="py-10 container mx-auto px-6">
         <h2
@@ -186,36 +189,46 @@ export default function About() {
         >
           {/* Criterion 1 */}
           <div className="p-6 border border-gray-700 rounded-xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/20 transition">
-            <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">Innovation & Creativity</h3>
+            <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">
+              Module Performance
+            </h3>
             <p className="text-gray-300 text-sm">
-              Measures novelty of the idea, uniqueness of the solution, and how creatively 
-              the team approaches challenges.  
-              <span className="block mt-2 text-[#3b82f6] font-semibold">Score: 25%</span>
+              Cumulative score from Modules 1-4, based on creativity, strategy,
+              and execution.
+              <span className="block mt-2 text-[#3b82f6] font-semibold">
+                Score: 60%
+              </span>
             </p>
           </div>
 
           {/* Criterion 2 */}
           <div className="p-6 border border-gray-700 rounded-xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/20 transition">
-            <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">Business Feasibility</h3>
+            <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">
+              Final Pitch
+            </h3>
             <p className="text-gray-300 text-sm">
-              Evaluates market fit, financial sustainability, and strength of the 
-              proposed business model.
-              <span className="block mt-2 text-[#3b82f6] font-semibold">Score: 25%</span>
+              Quality of the final presentation, showcasing adaptability and key
+              learnings.
+              <span className="block mt-2 text-[#3b82f6] font-semibold">
+                Score: 30%
+              </span>
             </p>
           </div>
 
           {/* Criterion 3 */}
           <div className="p-6 border border-gray-700 rounded-xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/20 transition">
-            <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">Execution & Problem-Solving</h3>
+            <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">
+              Team Dynamics & Professionalism
+            </h3>
             <p className="text-gray-300 text-sm">
-              Judges how effectively the team responds to dynamic challenges, builds 
-              prototypes, and executes ideas under pressure.
-              <span className="block mt-2 text-[#3b82f6] font-semibold">Score: 20%</span>
+              Assessed throughout the competition by judges and volunteers.
+              <span className="block mt-2 text-[#3b82f6] font-semibold">
+                Score: 10%
+              </span>
             </p>
           </div>
 
-          {/* Criterion 4 */}
-          <div className="p-6 border border-gray-700 rounded-xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/20 transition">
+          {/* <div className="p-6 border border-gray-700 rounded-xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/20 transition">
             <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">Teamwork & Communication</h3>
             <p className="text-gray-300 text-sm">
               Assesses coordination, clarity in communication, and how well the team 
@@ -224,7 +237,6 @@ export default function About() {
             </p>
           </div>
 
-          {/* Criterion 5 */}
           <div className="p-6 border border-gray-700 rounded-xl bg-gradient-to-b from-black to-[#0a0a0a] shadow-xl hover:shadow-cyan-500/20 transition">
             <h3 className="text-2xl font-semibold text-[#00ffff] mb-2">Final Pitch Quality</h3>
             <p className="text-gray-300 text-sm">
@@ -232,10 +244,9 @@ export default function About() {
               and the team&apos;s ability to defend their idea.
               <span className="block mt-2 text-[#3b82f6] font-semibold">Score: 15%</span>
             </p>
-          </div>
+          </div> */}
         </div>
       </section>
-
 
       {/*Affiliations */}
       <section className=" container max-w-auto">

@@ -33,7 +33,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "Day 1 — Friday",
     title: "Module 1: The Idea Auction",
     description:
-      "Teams bid using virtual seed money on limited resources, problems, and advantages — testing valuation and strategy.",
+      "Teams receive virtual seed money to bid on a limited pool of resources, problem statements, and unique advantages. This module tests their strategic allocation and on-the-spot valuation skills.",
     side: "left",
     time: "5:00 PM - 8:00 PM",
   },
@@ -43,7 +43,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "Day 2 — Saturday",
     title: "Module 2: Viral Vendetta",
     description:
-      "A marketing challenge to create a full digital campaign for a quirky assigned product.",
+      "A marketing challenge where teams must create a complete digital marketing campaign for a quirky, assigned product. Judged on creativity, execution, and engagement strategy.",
     side: "right",
     time: "9:00 AM - 1:00 PM",
   },
@@ -51,7 +51,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "Day 2 — Saturday",
     title: "Module 3: Corporate Cataclysm",
     description:
-      "Crisis simulation - PR disaster, supply chain collapse, ethics challenge. Teams present a response plan.",
+      "A surprise crisis management simulation. Teams are given a scenario (e.g., PR disaster, supply chain collapse) and must present a response plan. This tests their ethics, communication, and problem-solving under pressure.",
     side: "left",
     time: "2:00 PM - 6:00 PM",
   },
@@ -59,7 +59,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "Day 2 — Saturday",
     title: "Social Night",
     description:
-      "A formal dinner where teams network with industry professionals.",
+      "A formal dinner where teams must network with invited industry professionals to \"win\" their support. Judged on communication and networking skills.",
     side: "right",
     time: "7:00 PM onwards",
   },
@@ -69,7 +69,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "Day 3 — Sunday",
     title: "Module 4: The Final Gambit",
     description:
-      "Teams build a final 5-minute pitch showcasing adaptability and learnings from all modules.",
+      "Teams use their journey and learnings from all previous modules to build a final 5-minute pitch that showcases why their team is the most adaptable and competent entrepreneurial unit.",
     side: "left",
     time: "9:00 AM - 12:00 PM",
   },
