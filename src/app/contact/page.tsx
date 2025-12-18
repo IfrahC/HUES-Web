@@ -66,7 +66,7 @@ export default function ContactPage() {
 
             <div className="flex flex-col gap-1">
               <span className="text-xl font-semibold text-white">Event Dates</span>
-              <span>January 23rd – 25th, 2026</span>
+              <span>February 6th - 8th, 2026</span>
             </div>
           </div>
         </motion.div>

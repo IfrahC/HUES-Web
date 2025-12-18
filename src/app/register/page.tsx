@@ -102,7 +102,7 @@ export default function LaunchpadRegistration() {
         <p className="text-gray-400 text-center max-w-2xl mx-auto mb-10">
           Status: <span className="text-[#00ffff] font-semibold">OPEN</span>
           <br />
-          January 23rd-25th • Habib University • PKR 6,000/team (Non-refundable)
+          February 6th - 8th, 2026 • Habib University • PKR 6,000/team (Non-refundable)
         </p>
 
         <form

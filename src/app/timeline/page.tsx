@@ -57,9 +57,9 @@ const timelineEvents: TimelineEvent[] = [
   },
   {
     year: "Day 2 — Saturday",
-    title: "Module 4: The Investor's Gala",
+    title: "Social Night",
     description:
-      "A formal dinner where teams network with industry professionals (judges in disguise) to earn support.",
+      "A formal dinner where teams network with industry professionals.",
     side: "right",
     time: "7:00 PM onwards",
   },
@@ -67,7 +67,7 @@ const timelineEvents: TimelineEvent[] = [
   // Day 3 — Sunday
   {
     year: "Day 3 — Sunday",
-    title: "Module 5: The Final Gambit",
+    title: "Module 4: The Final Gambit",
     description:
       "Teams build a final 5-minute pitch showcasing adaptability and learnings from all modules.",
     side: "left",

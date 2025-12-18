@@ -19,7 +19,7 @@ export default function HomePage() {
         <p className="text-lg font-semibold text-white mb-2">
           Habib University Entrepreneurship Society
         </p>
-        <p>© {new Date().getFullYear()} HUES. All rights reserved.</p>
+        <p>©2026 HUES. All rights reserved.</p>
       </footer>
     </div>
   );
