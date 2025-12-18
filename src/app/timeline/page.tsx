@@ -161,26 +161,47 @@ export default function TimelinePage() {
                       {event.year}
                     </div>
                     <h3 className="text-2xl font-bold mb-3">{event.title}</h3>
-                    <p className="text-gray-300">{event.description}</p>
+                    <p className="text-gray-300 leading-relaxed sm:leading-normal">{event.description}</p>
                   </div>
                 </div>
 
-                {/* Center marker */}
-                <div className="flex items-center justify-center">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-[#0d0d0d] shadow-lg z-20">
-                    <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse mx-auto mt-1.5"></div>
+                {/* Timeline marker */}
+                <div className="absolute md:left-1/2 md:-translate-x-1/2 left-4 top-8 z-20">
+                  <div className="
+                    w-3 h-3 md:w-6 md:h-6
+                    bg-orange-500
+                    rounded-full
+                    border-2 md:border-4
+                    border-[#0d0d0d]
+                    shadow-md md:shadow-lg
+                  ">
+                    <div className="
+                      hidden md:block
+                      w-2 h-2
+                      bg-orange-300
+                      rounded-full
+                      animate-pulse
+                      mx-auto
+                      mt-1.5
+                    " />
                   </div>
                 </div>
 
                 {/* Mobile card */}
-                <div className="md:hidden w-full pl-10">
+                <div className="md:hidden w-full px-4">
                   <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] p-5 rounded-lg border border-[#00ffff]/30 shadow-xl hover:scale-[1.02] hover:border-[#00ffff]/60 transition">
                     <div className="text-xs font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
                       <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
                       {event.year}
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                    <p className="text-gray-300 text-sm">{event.description}</p>
+                    <h3 className="text-lg font-bold leading-snug mb-3">
+                      {event.title}
+                    </h3>
+
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {event.description}
+                    </p>
+
                   </div>
                 </div>
 
@@ -195,12 +216,28 @@ export default function TimelinePage() {
                 {/* Left empty spacer */}
                 <div className="hidden md:block w-1/2"></div>
 
-                {/* Center marker */}
-                <div className="flex items-center justify-center">
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-[#0d0d0d] shadow-lg z-20">
-                    <div className="w-2 h-2 bg-orange-300 rounded-full animate-pulse mx-auto mt-1.5"></div>
+                {/* Timeline marker */}
+                <div className="absolute md:left-1/2 md:-translate-x-1/2 left-4 top-8 z-20">
+                  <div className="
+                    w-3 h-3 md:w-6 md:h-6
+                    bg-orange-500
+                    rounded-full
+                    border-2 md:border-4
+                    border-[#0d0d0d]
+                    shadow-md md:shadow-lg
+                  ">
+                    <div className="
+                      hidden md:block
+                      w-2 h-2
+                      bg-orange-300
+                      rounded-full
+                      animate-pulse
+                      mx-auto
+                      mt-1.5
+                    " />
                   </div>
                 </div>
+
 
                 {/* Desktop card on the right */}
                 <div className="hidden md:flex justify-start w-1/2 pl-10">
@@ -215,14 +252,19 @@ export default function TimelinePage() {
                 </div>
 
                 {/* Mobile card */}
-                <div className="md:hidden w-full pl-10">
+                <div className="md:hidden w-full px-4">
                   <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] p-5 rounded-lg border border-[#00ffff]/30 shadow-xl hover:scale-[1.02] hover:border-[#00ffff]/60 transition">
                     <div className="text-xs font-semibold text-[#00ffff] mb-2 flex items-center gap-2">
                       <span className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse"></span>
                       {event.year}
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                    <p className="text-gray-300 text-sm">{event.description}</p>
+                    <h3 className="text-lg font-bold leading-snug mb-3">
+                      {event.title}
+                    </h3>
+
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {event.description}
+                    </p>
                   </div>
                 </div>
               </>
