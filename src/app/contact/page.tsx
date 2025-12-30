@@ -51,7 +51,7 @@ export default function ContactPage() {
           <div className="space-y-8 text-gray-200 text-lg">
             <div className="flex flex-col gap-1">
               <span className="text-xl font-semibold text-white">Email</span>
-              <span className="">launchpad@habib.edu.pk</span>
+              <span className="">entrepreneurshipclub@habib.edu.pk</span>
             </div>
 
             <div className="flex flex-col gap-1">
