@@ -59,7 +59,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "Day 2 — Saturday",
     title: "Social Night",
     description:
-      "A formal dinner where teams must network with invited industry professionals to \"win\" their support. Judged on communication and networking skills.",
+      "A networking dinner with invited industry professionals.",
     side: "right",
     time: "7:00 PM onwards",
   },
