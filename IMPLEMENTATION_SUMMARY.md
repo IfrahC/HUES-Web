@@ -252,21 +252,12 @@ const hasValidCredentials =
 **Dynamic Routes:** 2 API routes  
 **Security Scan:** 0 vulnerabilities  
 
-## Screenshots
-
-### Timeline Page (After Fix)
-![Timeline](https://github.com/user-attachments/assets/735eea20-131f-41f5-9843-d38180a39ffe)
-
-### Registration Page (With Payment Flow)
-![Registration](https://github.com/user-attachments/assets/d28aa8d4-081a-4e39-ad37-f05a03b2a0e9)
-
 ## Conclusion
 
 All requirements from the problem statement have been successfully implemented:
 
 ✅ Firebase backend integrated  
 ✅ Firestore database configured for registration data  
-✅ Payment gateway structure ready  
 ✅ README updated with backend documentation  
 ✅ Timeline page UI alignment fixed  
 ✅ Optimized for 100+ registrations  
