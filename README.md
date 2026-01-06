@@ -64,3 +64,8 @@ public/                   # static assets
 - `npm run lint` — run linter
 
 ---
+
+## Contributers
+- Ifrah Chishti
+- Abbas Ali
+- Naveed Ahmed
