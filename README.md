@@ -1,6 +1,6 @@
 # HUES Web
 
-A modern Next.js web application for the Habib University Entrepreneurship Society (HUES). This site provides event information and attendee registration  — backed by Firebase (Firestore + Admin SDK).
+A modern Next.js web application for the Habib University Entrepreneurship Society (HUES). This site provides event information for HU Launchpad and attendee registration  — backed by Firebase.
 
 Highlights
 
