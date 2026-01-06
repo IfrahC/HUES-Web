@@ -21,7 +21,7 @@ Prerequisites
 Install and run locally
 
 ```bash
-git clone [<repository-url>](https://github.com/IfrahC/HUES-Web.git)
+git clone https://github.com/IfrahC/HUES-Web.git
 cd HUES-Web
 npm install
 npm run dev
