@@ -16,7 +16,7 @@ Prerequisites
 
 - Node.js 18 or newer
 - A Firebase project (for Firestore + Admin SDK)
-- `npm` or `yarn`
+- `npm`
 
 Install and run locally
 
