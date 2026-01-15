@@ -19,6 +19,7 @@ type FormData = {
   member4Cnic?: string;
   member5Name?: string;
   member5Cnic?: string;
+  brandAmbassadorId?: string;
   agreeAttendance: boolean;
   agreeMedia: boolean;
   agreeRules: boolean;
@@ -61,6 +62,7 @@ export default function LaunchpadRegistration() {
 
         member5Name: data.member5Name || "",
         member5Cnic: data.member5Cnic || "",
+        brandAmbassadorId: data.brandAmbassadorId || "",
       };
 
       // 1️⃣ FIRST: Save to Firebase backend
@@ -159,6 +161,25 @@ export default function LaunchpadRegistration() {
                 {errors.school && (
                   <p className="text-red-500 mt-1 text-sm">
                     {errors.school.message as string}
+                  </p>
+                )}
+              </div>
+
+              {/* Brand Ambassador ID (optional) */}
+              <div className="md:col-span-2">
+                <label className="font-semibold mb-1 block">
+                  Brand Ambassador ID (optional)
+                </label>
+                <input
+                  {...register("brandAmbassadorId", {
+                    maxLength: { value: 50, message: "Too long" },
+                  })}
+                  placeholder="If you have a Brand Ambassador ID, enter it here"
+                  className="w-full bg-[#0d0d0d] border border-[#333] rounded-md px-4 py-2 focus:ring-2 focus:ring-[#00ffff]"
+                />
+                {errors.brandAmbassadorId && (
+                  <p className="text-red-500 mt-1 text-sm">
+                    {errors.brandAmbassadorId.message as string}
                   </p>
                 )}
               </div>

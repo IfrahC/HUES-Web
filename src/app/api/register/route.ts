@@ -6,11 +6,11 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { 
-      startupName, school, leadName, leadEmail, 
+    const {
+      startupName, school, leadName, leadEmail,
       leadPhone, leadCnic, member2Name, member2Cnic,
       member3Name, member3Cnic, member4Name, member4Cnic,
-      member5Name, member5Cnic
+      member5Name, member5Cnic, brandAmbassadorId
     } = body;
 
     // Firestore
@@ -29,6 +29,7 @@ export async function POST(req: Request) {
       member4Cnic: member4Cnic || "",
       member5Name: member5Name || "",
       member5Cnic: member5Cnic || "",
+      brandAmbassadorId: brandAmbassadorId || "",
       timestamp: Timestamp.now(),
     });
 
@@ -51,12 +52,13 @@ export async function POST(req: Request) {
       member4Cnic: member4Cnic || "",
       member5Name: member5Name || "",
       member5Cnic: member5Cnic || "",
+      brandAmbassadorId: brandAmbassadorId || "",
       timestamp: new Date().toISOString()
     };
 
     // Send to Google Sheets 
     const googleWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL!;
-    
+
     fetch(googleWebhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
