@@ -65,7 +65,7 @@ export default function LaunchpadRegistration() {
         brandAmbassadorId: data.brandAmbassadorId || "",
       };
 
-      // 1️⃣ FIRST: Save to Firebase backend
+      // Save to Firebase backend
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -168,7 +168,7 @@ export default function LaunchpadRegistration() {
               {/* Brand Ambassador ID (optional) */}
               <div className="md:col-span-2">
                 <label className="font-semibold mb-1 block">
-                  Brand Ambassador ID (optional)
+                  Brand Ambassador ID
                 </label>
                 <input
                   {...register("brandAmbassadorId", {
