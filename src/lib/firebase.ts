@@ -10,8 +10,6 @@ if (
   process.env.FIREBASE_CLIENT_EMAIL &&
   process.env.FIREBASE_PRIVATE_KEY
 ) {
-  // Convert literal \n to real newlines for Firebase
-  const privateKey = process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n");
 
   const serviceAccount = {
     projectId: process.env.FIREBASE_PROJECT_ID,

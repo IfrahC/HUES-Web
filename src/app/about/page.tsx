@@ -2,12 +2,7 @@
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-
 import Image from "next/image";
-
-import { history } from "../DataAbout/history";
-import { testimonials } from "../DataAbout/testimonials";
 
 // Animated Currency Counter
 function AnimatedCounter({ value }: { value: number }) {
@@ -41,27 +36,27 @@ function AnimatedCounter({ value }: { value: number }) {
 }
 
 export default function About() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    centerMode: true,
-    centerPadding: "0px",
-    responsive: [
-      {
-        breakpoint: 1024, // tablets
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 640, // mobile
-        settings: { slidesToShow: 1 },
-      },
-    ],
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 600,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 2500,
+  //   centerMode: true,
+  //   centerPadding: "0px",
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024, // tablets
+  //       settings: { slidesToShow: 2 },
+  //     },
+  //     {
+  //       breakpoint: 640, // mobile
+  //       settings: { slidesToShow: 1 },
+  //     },
+  //   ],
+  // };
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
