@@ -36,7 +36,7 @@ export default function Join() {
       } else {
         toast.error(result.message || "Something went wrong");
       }
-    } catch (err) {
+    } catch (_err) {
       toast.error("Error submitting form");
     }
   };
