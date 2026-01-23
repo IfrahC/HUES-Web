@@ -1,6 +1,9 @@
+import 'react';
+import Image from 'next/image';
+
 export const testimonials = [
     {
-        image: <img
+        image: <Image
                   src="/Images/profile.png"
                   alt="Picture of the author"
                   width = {200}
@@ -11,7 +14,7 @@ export const testimonials = [
         description:'Being part of the Habib University Entrepreneurship Society has been an inspiring experience. HUES empowers students to turn ideas into impact through collaboration, creativity, and innovation. It’s more than a society — it’s a community that encourages leadership, growth, and real-world change.',
     },
     {
-        image: <img
+        image: <Image
                   src="/Images/profile.png"
                   alt="Picture of the author"
                   width = {200}
@@ -23,7 +26,7 @@ export const testimonials = [
         description:'Being part of the Habib University Entrepreneurship Society has been an inspiring experience. HUES empowers students to turn ideas into impact through collaboration, creativity, and innovation. It’s more than a society — it’s a community that encourages leadership, growth, and real-world change.',
     },
     {
-        image: <img
+        image: <Image
                   src="/Images/profile.png"
                   alt="Picture of the author"
                   width = {200}
@@ -35,7 +38,7 @@ export const testimonials = [
         description:'Being part of the Habib University Entrepreneurship Society has been an inspiring experience. HUES empowers students to turn ideas into impact through collaboration, creativity, and innovation. It’s more than a society — it’s a community that encourages leadership, growth, and real-world change.',
     },
     {
-        image: <img
+        image: <Image
                   src="/Images/profile.png"
                   alt="Picture of the author"
                   width = {200}
@@ -46,7 +49,7 @@ export const testimonials = [
         description:'Being part of the Habib University Entrepreneurship Society has been an inspiring experience. HUES empowers students to turn ideas into impact through collaboration, creativity, and innovation. It’s more than a society — it’s a community that encourages leadership, growth, and real-world change.',
     },
     {
-        image: <img
+        image: <Image
                   src="/Images/profile.png"
                   alt="Picture of the author"
                   width = {200}
